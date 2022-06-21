@@ -1,0 +1,22 @@
+@use 'sass:math';
+@use '../settings';
+
+@function strip-units($val) {
+  $newVal: 0;
+
+  @if $val {
+      $newVal: $val;
+  } @else {
+      $newVal: 0;
+  }
+
+  @return math.div($newVal, $newVal * 0 + 1);
+}
+
+@mixin rem($property, $sizeValue: settings.$font-size-base) {
+    $unitlessSizeValue: strip-units($sizeValue);
+    $remValue: math.div($unitlessSizeValue, settings.$font-size-base);
+
+    #{$property}: ceil($unitlessSizeValue) + px;
+    #{$property}: $remValue + rem;
+}

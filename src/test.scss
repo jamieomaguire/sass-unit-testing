@@ -1,0 +1,7 @@
+@use 'index' as lib;
+
+
+.test {
+  color: lib.$red;
+  font-size: lib.px-to-em(25px, 16px);
+}

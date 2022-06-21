@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+@function px-to-em ($sizePx, $baseSizePx) {
+  @return #{math.div($sizePx, $baseSizePx)}em;
+}

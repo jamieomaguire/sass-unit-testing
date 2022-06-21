@@ -1,0 +1,10 @@
+@use 'true' as *;
+@use '../../src/functions/px-to-em' as sut;
+
+@include describe('px-to-em [function]') {
+  @include it('Outputs the expect value in em units') {
+    @include assert-equal(sut.px-to-em(16px, 16px), '1em');
+    @include assert-equal(sut.px-to-em(24px, 16px), '1.5em');
+    @include assert-equal(sut.px-to-em(24.5px, 16px), '1.53125em');
+  }
+}

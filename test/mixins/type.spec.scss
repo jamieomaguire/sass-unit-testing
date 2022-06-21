@@ -1,0 +1,17 @@
+@use 'true' as *;
+@use '../../src/mixins/type' as sut;
+
+@include describe('rem [mixin]') {
+  @include it('Outputs the expected CSS') {
+    @include assert {
+      @include output {
+        @include sut.rem('width');
+      }
+
+      @include expect {
+        width: 16px;
+        width: 1rem
+      }
+    }
+  }
+}
